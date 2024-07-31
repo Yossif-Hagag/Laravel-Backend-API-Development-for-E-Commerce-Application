@@ -18,17 +18,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
-            //     'name' => 'Test User',
-            //     'email' => 'test@example.com',
-            // ]);
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
-            $this->call(ProductsTableSeeder::class);
-
-            $this->call(UserSeeder::class);
-
-            $this->call(WishlistSeeder::class);
-
-            $this->call(CartTableSeeder::class);
-
+        $this->call(UserSeeder::class);
+        $this->call(ProductsTableSeeder::class);
     }
 }
