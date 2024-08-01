@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\ProfileController;
+use App\Http\Controllers\Api\CartsController;
+use App\Http\Controllers\Api\CheckoutController;
 use App\Http\Controllers\Api\ProductsController;
+use App\Http\Controllers\Api\WishlistsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+//login
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -30,4 +33,16 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/product/create', [ProductsController::class, 'create']);
     Route::post('/product/update/{id}', [ProductsController::class, 'update']);
     Route::post('/product/delete/{id}', [ProductsController::class, 'delete']);
+
+    //carts
+    Route::post('/cart/addProductToCart', [CartsController::class, 'addProductToCart']);
+    Route::post('/cart/updateProductInCart', [CartsController::class, 'updateProductInCart']);
+    Route::post('/cart/removeProductFromCart', [CartsController::class, 'removeProductFromCart']);
+
+    //Wishlist
+    Route::post('/Wishlist/addProductToWishlist', [WishlistsController::class, 'addProductToWishlist']);
+    Route::post('/Wishlist/removeProductFromWishlist', [WishlistsController::class, 'removeProductFromWishlist']);
+
+    //checkout To Create Orders
+    Route::post('/checkout', [CheckoutController::class, 'checkout']);
 });

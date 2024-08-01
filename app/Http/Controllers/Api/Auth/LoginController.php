@@ -20,10 +20,7 @@ class LoginController extends Controller
         ]);
 
         if (!auth()->attempt($data)) {
-            return $this->apiResponse(
-                status: Response::HTTP_NOT_FOUND,
-                message: 'Email or Password Not Found'
-            );
+            return $this->apiResponse(status: Response::HTTP_NOT_FOUND, message: 'Email or Password Not Found');
         }
 
         /** @var User */
